@@ -200,4 +200,13 @@ const Home = () => (
   </div>
 )
 
-export default Home
+export default Home ({title, article}){ 
+}
+
+export async function getStaticProps () {
+  const article = await getArticles()
+  const title = await getTitles()
+  return { 
+     props: {title, article},
+  }
+}
